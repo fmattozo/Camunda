@@ -1,0 +1,201 @@
+<xml-fragment xmlns:ins="ld:physical/InsertLogEAI_ws">
+	<header>
+		<S:Header xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+			<ns2:cabecalhoVivo
+				xmlns="http://www.vivo.com.br/SN/LojaFisica/EnviarTicketGSSRequest/v1"
+				xmlns:ns2="http://www.vivo.com.br/MC/Geral"
+				xmlns:ns3="http://www.vivo.com.br/SN/LojaFisica/EnviarTicketGSSResponse/v1">
+				<ns2:loginUsuario>vivo360</ns2:loginUsuario>
+				<ns2:canalAtendimento>1</ns2:canalAtendimento>
+				<ns2:codigoSessao>1</ns2:codigoSessao>
+				<ns2:nomeAplicacao>Vivo360</ns2:nomeAplicacao>
+				<ns2:token>1</ns2:token>
+				<ns2:enderecoIP>127.0.0.1</ns2:enderecoIP>
+				<ns2:codigoFuncionalidade>12345</ns2:codigoFuncionalidade>
+				<ns2:dataTransacao>2021-05-12T12:19:04.642Z</ns2:dataTransacao>
+				<ns2:nomeServico>EnviarTicketGSSRequest</ns2:nomeServico>
+				<ns2:versao>1.0</ns2:versao>
+				<ns2:hostname>NSPBERPE04REW5</ns2:hostname>
+				<ns2:jwt />
+			</ns2:cabecalhoVivo>
+		</S:Header>
+	</header>
+	<request>
+		<S:Body xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+			<enviarTicketGSSRequest
+				xmlns="http://www.vivo.com.br/SN/LojaFisica/EnviarTicketGSSRequest/v1"
+				xmlns:ns2="http://www.vivo.com.br/MC/Geral"
+				xmlns:ns3="http://www.vivo.com.br/SN/LojaFisica/EnviarTicketGSSResponse/v1">
+				<listaTicketGSS>
+					<ticketGSS>
+						<assuntoAgendamento>
+							<tipoAssunto>73</tipoAssunto>
+							<descricao>EventAgentLogin</descricao>
+						</assuntoAgendamento>
+						<agente>
+							<matricula>54719</matricula>
+						</agente>
+						<loja>
+							<codigo>539</codigo>
+							<nome>Loja Savassi MG/MG Belo Horizonte</nome>
+						</loja>
+						<posicaoAtendimento>
+							<posicao>14</posicao>
+						</posicaoAtendimento>
+						<senha>
+							<dataRequisicao>2021-05-12T09:18:28.000-0300</dataRequisicao>
+						</senha>
+						<statusSenhaAtendimento>
+							<codigo>0</codigo>
+						</statusSenhaAtendimento>
+					</ticketGSS>
+					<ticketGSS>
+						<assuntoAgendamento>
+							<tipoAssunto>75</tipoAssunto>
+							<descricao>EventAgentReady</descricao>
+						</assuntoAgendamento>
+						<agente>
+							<matricula>54719</matricula>
+						</agente>
+						<loja>
+							<codigo>539</codigo>
+							<nome>Loja Savassi MG/MG Belo Horizonte</nome>
+						</loja>
+						<posicaoAtendimento>
+							<posicao>14</posicao>
+						</posicaoAtendimento>
+						<senha>
+							<dataRequisicao>2021-05-12T09:18:29.000-0300</dataRequisicao>
+						</senha>
+						<statusSenhaAtendimento>
+							<codigo>0</codigo>
+						</statusSenhaAtendimento>
+					</ticketGSS>
+					<ticketGSS>
+						<assuntoAgendamento>
+							<tipoAssunto>74</tipoAssunto>
+							<descricao>EventAgentLogout</descricao>
+						</assuntoAgendamento>
+						<agente>
+							<matricula>54719</matricula>
+						</agente>
+						<loja>
+							<codigo>539</codigo>
+							<nome>Loja Savassi MG/MG Belo Horizonte</nome>
+						</loja>
+						<posicaoAtendimento>
+							<posicao>14</posicao>
+						</posicaoAtendimento>
+						<senha>
+							<dataRequisicao>2021-05-12T09:18:33.000-0300</dataRequisicao>
+						</senha>
+						<statusSenhaAtendimento>
+							<codigo>5</codigo>
+						</statusSenhaAtendimento>
+					</ticketGSS>
+				</listaTicketGSS>
+			</enviarTicketGSSRequest>
+		</S:Body>
+	</request>
+	<response>
+		<soapenv:Body
+			xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+			<soapenv:Fault>
+				<faultcode>soapenv:Server</faultcode>
+				<faultstring>999 - Ocorreu um erro inesperado na operação
+					setServiceEvent do serviço SetServiceEvent. Caso o problema
+					persista, entre em contato com a Central de Serviços.</faultstring>
+				<detail>
+					<ger:erroInfo
+						xmlns:ger="http://www.vivo.com.br/MC/Geral">
+						<ger:codigo>999</ger:codigo>
+						<ger:descricao>Ocorreu um erro inesperado na operação
+							setServiceEvent do serviço SetServiceEvent. Caso o problema
+							persista, entre em contato com a Central de Serviços.</ger:descricao>
+						<ger:dataTransacao>2021-05-12T09:19:04.743-03:00</ger:dataTransacao>
+						<ger:dadosAdicionais>
+							<traceSE>
+								<request>
+									<Body>
+										<v1:setServiceEventRequest
+											xmlns:v1="http://www.vivo.com.br/SE/WFMGestaoEscalas/SetServiceEventRequest/v1">
+											<v1:listaTicketGSS>
+												<v1:ticketGSS>
+													<v1:id>73</v1:id>
+													<v1:name>EventAgentLogin</v1:name>
+													<v1:agentId>54719</v1:agentId>
+													<v1:switchDbId>539</v1:switchDbId>
+													<v1:switchName>Loja Savassi MG/MG Belo Horizonte</v1:switchName>
+													<v1:dn>14</v1:dn>
+													<v1:dateEvent>2021-05-12T09:18:28.000-0300</v1:dateEvent>
+													<v1:callState>0</v1:callState>
+												</v1:ticketGSS>
+												<v1:ticketGSS>
+													<v1:id>75</v1:id>
+													<v1:name>EventAgentReady</v1:name>
+													<v1:agentId>54719</v1:agentId>
+													<v1:switchDbId>539</v1:switchDbId>
+													<v1:switchName>Loja Savassi MG/MG Belo Horizonte</v1:switchName>
+													<v1:dn>14</v1:dn>
+													<v1:dateEvent>2021-05-12T09:18:29.000-0300</v1:dateEvent>
+													<v1:callState>0</v1:callState>
+												</v1:ticketGSS>
+												<v1:ticketGSS>
+													<v1:id>74</v1:id>
+													<v1:name>EventAgentLogout</v1:name>
+													<v1:agentId>54719</v1:agentId>
+													<v1:switchDbId>539</v1:switchDbId>
+													<v1:switchName>Loja Savassi MG/MG Belo Horizonte</v1:switchName>
+													<v1:dn>14</v1:dn>
+													<v1:dateEvent>2021-05-12T09:18:33.000-0300</v1:dateEvent>
+													<v1:callState>5</v1:callState>
+												</v1:ticketGSS>
+											</v1:listaTicketGSS>
+										</v1:setServiceEventRequest>
+									</Body>
+								</request>
+								<response>
+									<Body>
+										<Fault>
+											<faultcode>soapenv:Server</faultcode>
+											<faultstring>999 - Ocorreu um erro inesperado na operação
+												setServiceEvent do serviço SetServiceEvent. Caso o problema
+												persista, entre em contato com a Central de Serviços.</faultstring>
+											<detail>
+												<ger:erroInfo>
+													<ger:codigo>999</ger:codigo>
+													<ger:descricao>Ocorreu um erro inesperado na operação
+														setServiceEvent do serviço SetServiceEvent. Caso o
+														problema persista, entre em contato com a Central de
+														Serviços.</ger:descricao>
+													<ger:dataTransacao>2021-05-12T09:19:04.729-03:00</ger:dataTransacao>
+													<ger:dadosAdicionais>
+														<con:fault
+															xmlns:con="http://www.bea.com/wli/sb/context">
+															<con:errorCode>999</con:errorCode>
+															<con:reason>Ocorreu um erro inesperado na operação
+																setServiceEvent do serviço SetServiceEvent. Caso o
+																problema persista, entre em contato com a Central de
+																Serviços.</con:reason>
+															<con:location>
+																<con:node>RouteToSetServiceEvent</con:node>
+																<con:pipeline>_onErrorHandler-1222420077549471370-47b9e25b.172c263d4c4.-7811</con:pipeline>
+																<con:path>request-pipeline</con:path>
+																<con:error-handler>true</con:error-handler>
+															</con:location>
+														</con:fault>
+													</ger:dadosAdicionais>
+												</ger:erroInfo>
+											</detail>
+										</Fault>
+									</Body>
+								</response>
+							</traceSE>
+						</ger:dadosAdicionais>
+						<ger:codigoClassificacao />
+					</ger:erroInfo>
+				</detail>
+			</soapenv:Fault>
+		</soapenv:Body>
+	</response>
+</xml-fragment>

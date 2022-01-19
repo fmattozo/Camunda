@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="8eb6a05f-523c-4818-aa06-e4ed5b684329" activeEnvironment="Default" name="ZZZ - Camunda" resourceRoot="" soapui-version="5.5.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:testSuite id="d225129d-5532-4241-84a5-3e4b1e80022c" name="TestSuite 1"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="1b20d71d-e911-4ca1-bfd2-489eedbef342" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase 1" searchProperties="true"><con:settings/><con:testStep type="httprequest" name="Create Instance" id="01e9ea82-d20f-4b1e-95f2-4f8cd5f29016"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" id="7b8d3132-cbeb-4f5b-be85-dadc24e0d2c8" name="Create Instance" postQueryString="false" mediaType="application/json" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#host}/process-definition/key/Process_1835yuv/start</con:endpoint><con:request>{
+  "variables": {
+    "hasRestriction" : {
+        "value" : false,
+        "type": "boolean"
+    },
+	"documentsanalysis" : {
+        "value" : 0
+    },
+    "cutrin": {
+        "value" : true,
+        "type": "boolean"
+    }
+    
+  },
+ "businessKey" : "TestCREDITO"
+}</con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="httprequest" name="Get Tasks" id="156cd4bb-37a4-422a-8fd2-d30778b36d9e"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" id="7b8d3132-cbeb-4f5b-be85-dadc24e0d2c8" name="Get Tasks" postQueryString="false" mediaType="application/json" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#host}/task?processInstanceBusinessKey=TestCREDITO</con:endpoint><con:request>{
+  "variables": {
+    "hasRestriction" : {
+        "value" : false,
+        "type": "boolean"
+    }
+  },
+ "businessKey" : "TestCREDITO"
+}</con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="transfer" name="Get taskId" id="b89374ee-874a-4c7d-bde3-bced8047f183"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>taskId</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>Get Tasks</con:sourceStep><con:sourcePath>[0]id</con:sourcePath><con:targetType>taskId</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:type>JSONPATH</con:type><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="httprequest" name="Complete Task" id="48fd7674-39f2-46e2-99bc-49db8397d363"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" id="7b8d3132-cbeb-4f5b-be85-dadc24e0d2c8" name="Complete Task" postQueryString="false" mediaType="application/json" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#host}/task/${#TestCase#taskId}/complete</con:endpoint><con:request>{"variables":
+    {"documentsanalysis": 
+        {"value": 0}
+    },
+ "withVariablesInReturn": true
+}</con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="httprequest" name="Get Tasks 2" id="583e3636-6f39-4f72-ae48-1e15da5e7bf2"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" id="7b8d3132-cbeb-4f5b-be85-dadc24e0d2c8" name="Get Tasks 2" postQueryString="false" mediaType="application/json" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#host}/task?processInstanceBusinessKey=TestCREDITO</con:endpoint><con:request>{
+  "variables": {
+    "hasRestriction" : {
+        "value" : false,
+        "type": "boolean"
+    }
+  },
+ "businessKey" : "TestCREDITO"
+}</con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="transfer" name="Get taskId 2" id="3a9f92a3-d872-4f3a-b436-71cdb5c208a5"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>taskId</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>Get Tasks 2</con:sourceStep><con:sourcePath>[0]id</con:sourcePath><con:targetType>taskId</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:type>JSONPATH</con:type><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="httprequest" name="Complete Task 2" id="ceb9cc26-dbf0-4143-bafb-1500b823174a"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" id="7b8d3132-cbeb-4f5b-be85-dadc24e0d2c8" name="Complete Task 2" postQueryString="false" mediaType="application/json" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#host}/task/${#TestCase#taskId}/complete</con:endpoint><con:request>{"variables":
+    {"creditAproval": 
+        {"value": true}
+    },
+ "withVariablesInReturn": true
+}</con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="manualTestStep" name="Manual TestStep" id="66938f58-3f80-4f4c-958e-bdb95138f2ec"><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:testStep><con:testStep type="httprequest" name="Get Tasks 3" id="8d575439-2bcb-41ed-b6be-af8f7970322a"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" id="7b8d3132-cbeb-4f5b-be85-dadc24e0d2c8" name="Get Tasks 3" postQueryString="false" mediaType="application/json" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#host}/task?processInstanceBusinessKey=TestCREDITO</con:endpoint><con:request>{
+  "variables": {
+    "hasRestriction" : {
+        "value" : false,
+        "type": "boolean"
+    }
+  },
+ "businessKey" : "TestCREDITO"
+}</con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="transfer" name="Get taskId 3" id="ce94e3eb-4b5e-4c75-99c4-d13d9fa6be56"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>taskId</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>Get Tasks 3</con:sourceStep><con:sourcePath>[0]id</con:sourcePath><con:targetType>taskId</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:type>JSONPATH</con:type><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="httprequest" name="Complete Task 3" id="9c2ced69-e922-4800-a7e6-c3243eec0090"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" id="7b8d3132-cbeb-4f5b-be85-dadc24e0d2c8" name="Complete Task 3" postQueryString="false" mediaType="application/json" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#host}/task/${#TestCase#taskId}/complete</con:endpoint><con:request>{"variables":
+    {"contractOk": 
+        {"value": false}
+    },
+ "withVariablesInReturn": true
+}</con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="manualTestStep" name="Manual TestStep 2" id="c1ed3dac-e56d-4a05-93c7-7e1ad75ad9c6"><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:testStep><con:testStep type="httprequest" name="Get Tasks 4" id="8dac2fb2-48ab-49f8-93fb-beb7ee0d7f40"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" id="7b8d3132-cbeb-4f5b-be85-dadc24e0d2c8" name="Get Tasks 4" postQueryString="false" mediaType="application/json" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#host}/task?processInstanceBusinessKey=TestCREDITO</con:endpoint><con:request>{
+  "variables": {
+    "hasRestriction" : {
+        "value" : false,
+        "type": "boolean"
+    }
+  },
+ "businessKey" : "TestCREDITO"
+}</con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="transfer" name="Get taskId 4" id="f0589c9c-285c-48a3-956d-9032efe7e597"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>taskId</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>Get Tasks 4</con:sourceStep><con:sourcePath>[0]id</con:sourcePath><con:targetType>taskId</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:type>JSONPATH</con:type><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="httprequest" name="Complete Task 4" id="0d0000b6-49ed-480b-b00d-5988f7dac137"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" id="7b8d3132-cbeb-4f5b-be85-dadc24e0d2c8" name="Complete Task 4" postQueryString="false" mediaType="application/json" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#host}/task/${#TestCase#taskId}/complete</con:endpoint><con:request>{
+ "withVariablesInReturn": true
+}</con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:properties><con:property><con:name>taskId</con:name><con:value>356122ac-7922-11ec-ad16-4a89e7985dff</con:value></con:property></con:properties></con:testCase><con:properties/></con:testSuite><con:properties><con:property><con:name>host</con:name><con:value>localhost:8088/engine-rest</con:value></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
